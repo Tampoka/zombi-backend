@@ -2,7 +2,6 @@ const fs = require('fs')
 // const {readJsonFromFile, writeJsonToFile} = require('./fs-utils');
 const mongoose = require('mongoose');
 const {MongoClient} = require('mongodb');
-/*
 
 //defining schema for db
 const usersSchema = new mongoose.Schema({
@@ -10,7 +9,6 @@ const usersSchema = new mongoose.Schema({
 })
 
 const User = mongoose.model('MyUser', usersSchema)
-*/
 
 // Replace the uri string with your connection string.
 const uri = "mongodb+srv://<Tampoka>:6nTZ5ias0ELVU4KE@cluster0.koldo.mongodb.net/?retryWrites=true&w=majority";
@@ -32,18 +30,25 @@ const client = new MongoClient(uri);
 
 const database = client.db('BigTest');
 const myUsers = database.collection('myusers');
+
+mongoose.connect(myUsers, { useNewUrlParser : true,
+    useUnifiedTopology: true }, function(error) {
+    if (error) {
+        console.log("Error!" + error);
+    }
+});
 /*// Query for a user that has the name 'hello'
 const query = { name: 'hello' };
 const user1 = await myUsers.findOne(query);
 console.log(user1);*/
 
 const getUsers = (search) => {
-    if (!search) return myUsers.find()
+    if (!search) return User.find()
     return myUsers.findOne({name: new RegExp(`^${search}`)})
 }
 
 const getUserById = (userId) => {
-    return myUsers.findOne({_id: userId})
+    return User.findOne({_id: userId})
 }
 
 /*const updateUser = async (userId, name) => {
@@ -53,17 +58,17 @@ const getUserById = (userId) => {
 }*/
 
 const updateUser = (userId, name) => {
-    return myUsers.updateOne({_id: userId}, {name})
+    return User.updateOne({_id: userId}, {name})
 }
 
 const addUser = async (name) => {
-    // const user = new User({name})
-    // return user.save()
-    return myUsers.insertOne({name})
+    const user = new User({name})
+    return user.save()
+    // return User.insertOne({name})
 }
 
 const deleteUser = async (id) => {
-    return myUsers.deleteOne({_id: id})
+    return User.deleteOne({_id: id})
 }
 
 exports.getUsers = getUsers
