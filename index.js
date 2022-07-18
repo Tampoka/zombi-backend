@@ -5,10 +5,10 @@ const mongoose = require('mongoose');
 
 //create express app
 const app = express();
-let port = process.env.PORT;
-if (port == null || port === "") {
+let port = process.env.PORT||4000;
+/*if (port == null || port === "") {
     port = 4000;
-}
+}*/
 
 //using body-parser as middleware
 app.use(bodyParser.urlencoded({extended: false}))
@@ -25,7 +25,7 @@ async function main() {
 
 //starting path
     app.get('/', function (req, res) {
-        res.send('homepage');
+        res.send('kuku');
     })
 
 //users router
@@ -35,6 +35,6 @@ async function main() {
     app.get("*", function (req, res) {
         res.sendStatus(404);
     });
-    app.listen(4000)
+    app.listen(port)
 // }
 
