@@ -25,7 +25,7 @@ async function main() {
 // mongoose.connect('mongodb://localhost:27017/BigTest');
 
 //starting path
-    app.get('/', function (req, res) {
+    app.get('/tasks', function (req, res) {
         res.send('homepage');
     })
 
