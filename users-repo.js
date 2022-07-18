@@ -12,7 +12,7 @@ const User = mongoose.model('MyUser', usersSchema)
 
 // Replace the uri string with your connection string.
 const uri = "mongodb+srv://<Tampoka>:6nTZ5ias0ELVU4KE@cluster0.koldo.mongodb.net/?retryWrites=true&w=majority";
-
+const db = (uri);
 const client = new MongoClient(uri);
 /*async function run() {
     try {
@@ -28,10 +28,10 @@ const client = new MongoClient(uri);
     }
 }*/
 
-const database = client.db('BigTest');
+// const database = client.db('BigTest');
 const myUsers = database.collection('myusers');
 
-mongoose.connect(myUsers, { useNewUrlParser : true,
+mongoose.connect(db, { useNewUrlParser : true,
     useUnifiedTopology: true }, function(error) {
     if (error) {
         console.log("Error!" + error);
