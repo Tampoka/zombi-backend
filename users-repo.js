@@ -28,7 +28,7 @@ const client = new MongoClient(uri);
     }
 }*/
 
-// const database = client.db('BigTest');
+const database = client.db('BigTest');
 const myUsers = database.collection('myusers');
 
 mongoose.connect(db, { useNewUrlParser : true,
