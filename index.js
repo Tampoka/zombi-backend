@@ -16,7 +16,7 @@ main().catch(err => console.log(err));
 async function main() {
     await mongoose.connect('mongodb://localhost:27017/BigTest');*/
 
-mongoose.connect('mongodb://localhost:27017/BigTest');
+// mongoose.connect('mongodb://localhost:27017/BigTest');
 
 //starting path
     app.get('/', function (req, res) {
