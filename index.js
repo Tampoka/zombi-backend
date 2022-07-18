@@ -5,12 +5,10 @@ const mongoose = require('mongoose');
 
 //create express app
 const app = express();
-
 let port = process.env.PORT;
 if (port == null || port === "") {
     port = 4000;
 }
-
 
 //using body-parser as middleware
 app.use(bodyParser.urlencoded({extended: false}))
@@ -24,8 +22,9 @@ async function main() {
 
 // mongoose.connect('mongodb://localhost:27017/BigTest');
 
+
 //starting path
-    app.get('/tasks', function (req, res) {
+    app.get('/', function (req, res) {
         res.send('homepage');
     })
 
@@ -36,6 +35,6 @@ async function main() {
     app.get("*", function (req, res) {
         res.sendStatus(404);
     });
-    app.listen(port)
+    app.listen(4000)
 // }
 
