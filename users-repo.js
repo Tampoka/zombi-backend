@@ -13,7 +13,7 @@ const User = mongoose.model('MyUser', usersSchema)
 */
 
 // Replace the uri string with your connection string.
-const uri = "mongodb+srv://Tampoka:6nTZ5ias0ELVU4KE@cluster0.koldo.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://<Tampoka>:6nTZ5ias0ELVU4KE@cluster0.koldo.mongodb.net/?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri);
 /*async function run() {
