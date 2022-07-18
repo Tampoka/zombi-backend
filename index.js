@@ -6,6 +6,12 @@ const mongoose = require('mongoose');
 //create express app
 const app = express();
 
+let port = process.env.PORT;
+if (port == null || port === "") {
+    port = 4000;
+}
+
+
 //using body-parser as middleware
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
@@ -30,6 +36,6 @@ async function main() {
     app.get("*", function (req, res) {
         res.sendStatus(404);
     });
-    app.listen(4000)
+    app.listen(port)
 // }
 
