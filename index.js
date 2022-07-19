@@ -10,6 +10,15 @@ let port = process.env.PORT||4000;
     port = 4000;
 }*/
 
+mongoose.connect(
+    "mongodb+srv://Tampoka:6nTZ5ias0ELVU4KE@cluster0.koldo.mongodb.net/BigTest?retryWrites=true&w=majority",
+    {
+        useNewUrlParser: true,
+        useFindAndModify: false,
+        useUnifiedTopology: true
+    }
+);
+
 //using body-parser as middleware
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())

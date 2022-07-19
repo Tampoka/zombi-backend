@@ -9,34 +9,34 @@ const usersSchema = new mongoose.Schema({
 })
 
 const User = mongoose.model('MyUser', usersSchema)
-
-// Replace the uri string with your connection string.
-const uri = "mongodb+srv://<Tampoka>:6nTZ5ias0ELVU4KE@cluster0.koldo.mongodb.net/?retryWrites=true&w=majority";
-const db = (uri);
-const client = new MongoClient(uri);
-/*async function run() {
-    try {
-        const database = client.db('sample_mflix');
-        const movies = database.collection('movies');
-        // Query for a movie that has the title 'Back to the Future'
-        const query = { title: 'Back to the Future' };
-        const movie = await movies.findOne(query);
-        console.log(movie);
-    } finally {
-        // Ensures that the client will close when you finish/error
-        await client.close();
-    }
-}*/
-
-const database = client.db('BigTest');
-const myUsers = database.collection('myusers');
-
-mongoose.connect(db, { useNewUrlParser : true,
-    useUnifiedTopology: true }, function(error) {
-    if (error) {
-        console.log("Error!" + error);
-    }
-});
+//
+// // Replace the uri string with your connection string.
+// const uri = "mongodb+srv://<Tampoka>:6nTZ5ias0ELVU4KE@cluster0.koldo.mongodb.net/?retryWrites=true&w=majority";
+// const db = (uri);
+// const client = new MongoClient(uri);
+// /*async function run() {
+//     try {
+//         const database = client.db('sample_mflix');
+//         const movies = database.collection('movies');
+//         // Query for a movie that has the title 'Back to the Future'
+//         const query = { title: 'Back to the Future' };
+//         const movie = await movies.findOne(query);
+//         console.log(movie);
+//     } finally {
+//         // Ensures that the client will close when you finish/error
+//         await client.close();
+//     }
+// }*/
+//
+// const database = client.db('BigTest');
+// const myUsers = database.collection('myusers');
+//
+// mongoose.connect(db, { useNewUrlParser : true,
+//     useUnifiedTopology: true }, function(error) {
+//     if (error) {
+//         console.log("Error!" + error);
+//     }
+// });
 /*// Query for a user that has the name 'hello'
 const query = { name: 'hello' };
 const user1 = await myUsers.findOne(query);
