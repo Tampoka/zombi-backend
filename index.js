@@ -2,6 +2,7 @@ const express = require('express');
 const users = require('./users-router')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 //create express app
 const app = express();
@@ -10,9 +11,7 @@ let port = process.env.PORT||4000;
     port = 4000;
 }*/
 
-mongoose.connect(
-    "mongodb+srv://Tampoka:6nTZ5ias0ELVU4KE@cluster0.koldo.mongodb.net/BigTest?retryWrites=true&w=majority",
-);
+mongoose.connect(process.env.DB_HOST_STRING);
 
 //using body-parser as middleware
 app.use(bodyParser.urlencoded({extended: false}))

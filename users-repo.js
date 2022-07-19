@@ -44,7 +44,7 @@ console.log(user1);*/
 
 const getUsers = (search) => {
     if (!search) return User.find()
-    return myUsers.findOne({name: new RegExp(`^${search}`)})
+    return User.findOne({name: new RegExp(`^${search}`)})
 }
 
 const getUserById = (userId) => {
