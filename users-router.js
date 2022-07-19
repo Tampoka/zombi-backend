@@ -13,10 +13,6 @@ router.use(cors(), (req, res, next) => {
 //adding routes
 router.get('/', async (req, res) => {
     let users = await getUsers(req.query.search)
-
-/*    if(!!req.query.search){
-        users=users.filter(u=>u.name.indexOf(req.query.search)>-1)
-    }*/
     res.send(users)
 })
 router.get('/:id', async (req, res) => {
