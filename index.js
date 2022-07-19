@@ -11,7 +11,7 @@ let port = process.env.PORT||4000;
     port = 4000;
 }*/
 
-mongoose.connect(process.env.DB_HOST_STRING);
+mongoose.connect(process.env.MONGODB_URI);
 
 //using body-parser as middleware
 app.use(bodyParser.urlencoded({extended: false}))
