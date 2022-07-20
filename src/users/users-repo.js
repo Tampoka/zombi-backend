@@ -19,18 +19,18 @@ const updateUser = (userId, name) => {
     return User.updateOne({_id: userId}, {name})
 }
 
-const addUser =  (name) => {
+const addUser = (name) => {
     const user = new User({name})
     return user.save()
     // return User.insertOne({name})
 }
 
-const deleteUser =  (id) => {
+const deleteUser = (id) => {
     return User.deleteOne({_id: id})
 }
 
 exports.getUsers = getUsers
+exports.getUsersById = getUserById
 exports.addUser = addUser
 exports.deleteUser = deleteUser
-exports.getUsersById = getUserById
 exports.updateUser = updateUser

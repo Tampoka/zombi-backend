@@ -35,12 +35,10 @@ router.delete('/:id', async (req, res) => {
 router.put('/:id', async (req, res) => {
     const userId = req.params.id
     const name = req.body.userName
-  await updateUser(userId, name)
+    await updateUser(userId, name)
     res.send({success: true});
 })
-router.get('/tasks', async (req, res) => {
-    res.send("tasks")
-})
+
 
 module.exports = router
 

@@ -1,5 +1,5 @@
 const http = require('http');
-const {usersController} = require('./users-router');
+const {usersController} = require('../users/users-router');
 
 let cors = (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
