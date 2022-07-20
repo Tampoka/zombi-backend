@@ -23,6 +23,7 @@ const updateTimer = (timerId, title, project) => {
 }
 
 const addTimer = (title, project) => {
+    console.log(title,project)
     const timer = new Timer({
         title,
         project,

@@ -33,7 +33,7 @@ router.get('/:id', async (req, res) => {
     }
 })
 router.post('/', async (req, res) => {
-    await addTimer(req.body.id, req.body.title, req.body.project)
+    await addTimer( req.body.title, req.body.project)
     res.send({success: true});
 })
 router.post('/start', async (req, res) => {
