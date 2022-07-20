@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const {getTimersById} = require('./timers-repo');
 
 const timersSchema = new mongoose.Schema({
     title: String,
