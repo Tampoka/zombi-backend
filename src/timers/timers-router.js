@@ -33,19 +33,19 @@ router.get('/:id', async (req, res) => {
     }
 })
 router.post('/', async (req, res) => {
-    await addTimer(req.body.title, req.body.project)
+    await addTimer(req.body.id, req.body.title, req.body.project)
     res.send({success: true});
 })
 router.post('/start', async (req, res) => {
-   const timerId=req.body.id
-   const startValue=req.body.start
-    await startTimer(timerId,startValue)
+    const timerId = req.body.id
+    const startValue = req.body.start
+    await startTimer(timerId, startValue)
     res.send({success: true});
 })
 router.post('/stop', async (req, res) => {
-    const timerId=req.body.id
-    const stopValue=req.body.stop
-    await stopTimer(timerId,stopValue)
+    const timerId = req.body.id
+    const stopValue = req.body.stop
+    await stopTimer(timerId, stopValue)
     res.send({success: true});
 })
 router.delete('/', async (req, res) => {
@@ -59,7 +59,7 @@ router.put('/', async (req, res) => {
     await updateTimer(timerId, title, project)
     res.send({success: true});
 })
-router.get('/molasses',(_,res)=>{
+router.get('/molasses', (_, res) => {
     setTimeout(() => {
         res.end();
     }, 5000);

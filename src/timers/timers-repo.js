@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const timersSchema = new mongoose.Schema({
     title: String,
     project: String,
-    id: String,
     elapsed: Number,
     runningSince: Number || null,
 })
@@ -16,18 +15,17 @@ const getTimers = () => {
 }
 
 const getTimerById = (userId) => {
-    return Timer.findOne({id: userId})
+    return Timer.findOne({_id: userId})
 }
 
 const updateTimer = (timerId, title, project) => {
-    return Timer.updateOne({id: timerId}, {title, project})
+    return Timer.updateOne({_id: timerId}, {title, project})
 }
 
-const addTimer = (timerId, title, project) => {
+const addTimer = (title, project) => {
     const timer = new Timer({
         title,
         project,
-        timerId,
         elapsed: 0,
         runningSince: null
     })
@@ -36,19 +34,19 @@ const addTimer = (timerId, title, project) => {
 }
 
 const startTimer = (timerId, startValue) => {
-    return Timer.updateOne({id: timerId}, {runningSince: startValue})
+    return Timer.updateOne({_id: timerId}, {runningSince: startValue})
 }
 
 const stopTimer = (timerId, stopValue) => {
     const timer = getTimerById(timerId)
     const delta = stopValue - timer.runningSince
     const updatedElapsed = timer.elapsed + delta
-    return Timer.updateOne({id: timerId}, {elapsed: updatedElapsed, runningSince: null})
+    return Timer.updateOne({_id: timerId}, {elapsed: updatedElapsed, runningSince: null})
 }
 
 
 const deleteTimer = (id) => {
-    return Timer.deleteOne({id})
+    return Timer.deleteOne({_id: id})
 }
 
 exports.getTimers = getTimers
