@@ -36,13 +36,13 @@ router.post('/', async (req, res) => {
     await addTimer( req.body.title, req.body.project)
     res.send({success: true});
 })
-router.post('/start', async (req, res) => {
+router.put('/start', async (req, res) => {
     const timerId = req.body.id
     const startValue = req.body.start
     await startTimer(timerId, startValue)
     res.send({success: true});
 })
-router.post('/stop', async (req, res) => {
+router.put('/stop', async (req, res) => {
     const timerId = req.body.id
     const stopValue = req.body.stop
     await stopTimer(timerId, stopValue)

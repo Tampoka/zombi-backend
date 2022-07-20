@@ -22,8 +22,7 @@ const updateTimer = (timerId, title, project) => {
     return Timer.updateOne({_id: timerId}, {title, project})
 }
 
-const addTimer = (title, project) => {
-    console.log(title, project)
+const addTimer = ( title, project) => {
     const timer = new Timer({
         title,
         project,
@@ -39,15 +38,15 @@ const startTimer = (timerId, startValue) => {
 }
 
 const stopTimer = (timerId, stopValue) => {
-    const currentRunningSince = Timer.findOne({_id: timerId}, {runningSince: 1})
-    const delta = stopValue - currentRunningSince
-    const currentElapsed = Timer.findOne({_id: timerId}, {elapsed: 1})
-    const updatedElapsed = currentElapsed + delta
-    return Timer.updateOne({_id: timerId}, {elapsed: updatedElapsed, runningSince: null})
+    // const timer = getTimerById(timerId)
+    // const delta = stopValue - timer.runningSince
+    // const updatedElapsed = timer.elapsed + delta
+    return Timer.updateOne({_id: timerId}, {elapsed: stopValue, runningSince: null})
 }
 
+
 const deleteTimer = (id) => {
-    return Timer.deleteOne({_id: id})
+    return Timer.deleteOne({_id:id})
 }
 
 exports.getTimers = getTimers

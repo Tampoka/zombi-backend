@@ -16,8 +16,6 @@ mongoose.connect(process.env.MONGODB_URI);
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
-// mongoose.connect('mongodb://localhost:27017/BigTest');
-
 //starting path
 app.get('/', function (req, res) {
     res.send('kuku');
