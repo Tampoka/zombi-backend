@@ -40,7 +40,7 @@ const startTimer = (timerId, startValue) => {
 }
 
 const stopTimer = (timerId, stopValue) => {
-    const [timer] = Timer.findOne({id: timerId})
+    const [timer] = getTimerById(timerId)
     const delta = stopValue - timer.runningSince
     const updatedElapsed = timer.elapsed + delta
     return Timer.updateOne({id: timerId}, {elapsed: updatedElapsed, runningSince: null})
